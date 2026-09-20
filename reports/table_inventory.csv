@@ -1,0 +1,10 @@
+table,file,rows,columns,duplicate_rows,total_missing_values,columns_with_missing_values,memory_mb
+olist_customers_dataset,olist_customers_dataset.csv,99441,5,0,0,0,26.59
+olist_geolocation_dataset,olist_geolocation_dataset.csv,1000163,5,261831,0,0,130.26
+olist_order_items_dataset,olist_order_items_dataset.csv,112650,7,0,0,0,35.99
+olist_order_payments_dataset,olist_order_payments_dataset.csv,103886,5,0,0,0,16.23
+olist_order_reviews_dataset,olist_order_reviews_dataset.csv,99224,7,0,145903,2,39.12
+olist_orders_dataset,olist_orders_dataset.csv,99441,8,0,4908,3,52.94
+olist_products_dataset,olist_products_dataset.csv,32951,9,0,2448,8,6.3
+olist_sellers_dataset,olist_sellers_dataset.csv,3095,4,0,0,0,0.59
+product_category_name_translation,product_category_name_translation.csv,71,2,0,0,0,0.01
