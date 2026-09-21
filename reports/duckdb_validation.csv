@@ -1,0 +1,18 @@
+check,status,details
+Expected tables exist,PASS,Missing tables=[]
+No unexpected analytical tables,PASS,Unexpected tables=[]
+fact_order_items row count,PASS,"Expected=112,650; Actual=112,650"
+agg_order_items row count,PASS,"Expected=98,666; Actual=98,666"
+agg_order_payments row count,PASS,"Expected=99,440; Actual=99,440"
+agg_order_reviews row count,PASS,"Expected=98,673; Actual=98,673"
+fact_orders row count,PASS,"Expected=99,441; Actual=99,441"
+dim_customers row count,PASS,"Expected=96,096; Actual=96,096"
+fact_order_items grain,PASS,Expected analytical grain preserved
+fact_orders grain,PASS,Expected analytical grain preserved
+dim_customers grain,PASS,Expected analytical grain preserved
+agg_order_items grain,PASS,Expected analytical grain preserved
+agg_order_payments grain,PASS,Expected analytical grain preserved
+agg_order_reviews grain,PASS,Expected analytical grain preserved
+Product revenue reconciliation,PASS,"Detail=13,591,643.70; Aggregated=13,591,643.70"
+Freight reconciliation,PASS,"Detail=2,251,909.54; Aggregated=2,251,909.54"
+Orders with items relationship,PASS,"Orders with items=98,666; Aggregated item orders=98,666"
