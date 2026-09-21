@@ -1,0 +1,6 @@
+# Generated processed datasets
+data/processed/
+
+# Keep processed data locally; regenerate with the cleaning pipeline
+# Large generated processed dataset
+data/processed/geolocation_clean.csv

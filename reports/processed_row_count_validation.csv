@@ -1,0 +1,10 @@
+table,raw_rows,processed_rows,difference,status
+orders,99441,99441,0,PASS
+order_items,112650,112650,0,PASS
+payments,103886,103886,0,PASS
+reviews,99224,99224,0,PASS
+customers,99441,99441,0,PASS
+products,32951,32951,0,PASS
+sellers,3095,3095,0,PASS
+geolocation,1000163,1000163,0,PASS
+translation,71,71,0,PASS

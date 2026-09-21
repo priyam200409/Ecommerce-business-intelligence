@@ -1,0 +1,36 @@
+check,status,details,count
+Processed dataset availability,PASS,All expected processed datasets exist.,0
+orders row-count preservation,PASS,"Raw=99,441; Processed=99,441",0
+order_items row-count preservation,PASS,"Raw=112,650; Processed=112,650",0
+payments row-count preservation,PASS,"Raw=103,886; Processed=103,886",0
+reviews row-count preservation,PASS,"Raw=99,224; Processed=99,224",0
+customers row-count preservation,PASS,"Raw=99,441; Processed=99,441",0
+products row-count preservation,PASS,"Raw=32,951; Processed=32,951",0
+sellers row-count preservation,PASS,"Raw=3,095; Processed=3,095",0
+geolocation row-count preservation,PASS,"Raw=1,000,163; Processed=1,000,163",0
+translation row-count preservation,PASS,Raw=71; Processed=71,0
+orders.order_id uniqueness,PASS,Nulls=0; duplicates=0,0
+customers.customer_id uniqueness,PASS,Nulls=0; duplicates=0,0
+products.product_id uniqueness,PASS,Nulls=0; duplicates=0,0
+sellers.seller_id uniqueness,PASS,Nulls=0; duplicates=0,0
+orders.customer_id,PASS,Orphan keys=0,0
+order_items.order_id,PASS,Orphan keys=0,0
+order_items.product_id,PASS,Orphan keys=0,0
+order_items.seller_id,PASS,Orphan keys=0,0
+payments.order_id,PASS,Orphan keys=0,0
+reviews.order_id,PASS,Orphan keys=0,0
+order_items.price >= 0,PASS,Invalid values=0,0
+order_items.freight_value >= 0,PASS,Invalid values=0,0
+payments.payment_value >= 0,PASS,Invalid values=0,0
+payments.payment_installments valid,PASS,Zero values=0; other invalid values=0,0
+reviews.review_score between 1 and 5,PASS,Invalid values=0,0
+products dimensions >= 0,PASS,Invalid dimension values=0,0
+orders.delivery_days >= 0,PASS,Negative delivery durations=0,0
+orders.estimated_delivery_days >= 0,PASS,Negative estimated durations=0,0
+orders.is_late consistency,PASS,Rows with is_late populated but delivery_delay_days missing=0,0
+orders data-quality flags generated,PASS,Lifecycle anomaly flags are present.,0
+order_items order_id + order_item_id uniqueness,PASS,Duplicate rows=0,0
+order_items transactional uniqueness,PASS,Duplicate transactional rows=0,0
+order_items.item_total_value calculation,PASS,Incorrect calculated values=0,0
+order_items.freight_ratio calculation,PASS,Incorrect calculated values=0,0
+orders.delivery_delay_days calculation,PASS,Incorrect calculated values=0,0
