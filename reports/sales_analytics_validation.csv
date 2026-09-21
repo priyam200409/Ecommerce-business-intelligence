@@ -1,0 +1,9 @@
+check,status,detail
+Product revenue reconciliation,PASS,Detail=13591643.7; Aggregated=13591643.7
+Total order count,PASS,Expected=99441; Actual=99441
+Unique customer count,PASS,Expected=96096; Actual=96096
+Orders with items reconciliation,PASS,Aggregated=98666; Fact orders=98666
+Category revenue reconciliation,PASS,Category total=13591643.7; Revenue=13591643.7
+State revenue reconciliation,PASS,State total=13591643.7; Revenue=13591643.7
+Monthly revenue reconciliation,PASS,Monthly total=13591643.7; Revenue=13591643.7
+Monthly order reconciliation,PASS,Monthly total=99441; Orders=99441
