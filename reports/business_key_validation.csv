@@ -1,0 +1,3 @@
+check,rows,duplicate_rows,duplicate_groups
+order_id + order_item_id uniqueness,112650,0,0
+full transactional identity uniqueness,112650,0,0

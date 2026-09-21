@@ -1,0 +1,28 @@
+check,status,details,count,percentage
+orders.order_id uniqueness,PASS,"Rows=99441, nulls=0, duplicates=0",0,0.0
+customers.customer_id uniqueness,PASS,"Rows=99441, nulls=0, duplicates=0",0,0.0
+products.product_id uniqueness,PASS,"Rows=32951, nulls=0, duplicates=0",0,0.0
+sellers.seller_id uniqueness,PASS,"Rows=3095, nulls=0, duplicates=0",0,0.0
+orders.customer_id → parent key,PASS,"Non-null child keys=99441, orphan keys=0",0,0.0
+order_items.order_id → parent key,PASS,"Non-null child keys=112650, orphan keys=0",0,0.0
+order_items.product_id → parent key,PASS,"Non-null child keys=112650, orphan keys=0",0,0.0
+order_items.seller_id → parent key,PASS,"Non-null child keys=112650, orphan keys=0",0,0.0
+payments.order_id → parent key,PASS,"Non-null child keys=103886, orphan keys=0",0,0.0
+reviews.order_id → parent key,PASS,"Non-null child keys=99224, orphan keys=0",0,0.0
+order_items.price valid (>= 0),PASS,Invalid negative prices=0,0,0.0
+order_items.freight_value valid (>= 0),PASS,Invalid negative freight values=0,0,0.0
+payments.payment_value valid (>= 0),PASS,Invalid negative payment values=0,0,0.0
+payments.payment_installments valid (> 0),REVIEW,Invalid rows=2; invalid values={0: 2},2,0.0
+reviews.review_score valid (1-5),PASS,Invalid review scores=0,0,0.0
+payments.payment_type validity,PASS,"Observed types=['boleto', 'credit_card', 'debit_card', 'not_defined', 'voucher']; unexpected types=[]",0,0.0
+Missing-value analysis,INFO,Missing values documented separately. No missing values were automatically imputed.,153259,
+Order status distribution,INFO,Observed 8 distinct order statuses.,8,
+approved_before_purchase,PASS,approved_at < purchase_timestamp; comparable rows=99281,0,0.0
+carrier_before_purchase,REVIEW,carrier_date < purchase_timestamp; comparable rows=97658,166,0.17
+carrier_before_approval,REVIEW,carrier_date < approved_at; comparable rows=97644,1359,1.39
+customer_delivery_before_purchase,PASS,customer_delivery < purchase_timestamp; comparable rows=96476,0,0.0
+customer_delivery_before_carrier,REVIEW,customer_delivery < carrier_date; comparable rows=96475,23,0.02
+estimated_delivery_before_purchase,PASS,estimated_delivery < purchase_timestamp; comparable rows=99441,0,0.0
+Geolocation exact duplicates,REVIEW,"261,831 exact duplicate rows out of 1,000,163 (26.18%). No deduplication performed.",261831,26.18
+Geolocation ZIP-prefix coordinate cardinality,INFO,"17,781 ZIP prefixes have multiple unique coordinate pairs.",17781,93.51
+Product category translation coverage,REVIEW,"Source categories=73, translated categories=71, untranslated categories=['pc_gamer', 'portateis_cozinha_e_preparadores_de_alimentos']",2,2.74

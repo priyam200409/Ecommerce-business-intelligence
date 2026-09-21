@@ -1,0 +1,8 @@
+metric,value
+total_rows,1000163.0
+exact_duplicate_rows,261831.0
+exact_duplicate_percentage,26.18
+unique_zip_code_prefixes,19015.0
+rows_with_missing_coordinates,0.0
+zip_prefixes_with_multiple_coordinate_pairs,17781.0
+maximum_coordinate_pairs_for_one_zip,746.0

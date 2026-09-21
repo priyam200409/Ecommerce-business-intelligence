@@ -1,0 +1,17 @@
+check,status,count,percentage,details
+order_purchase_timestamp missing after parsing,INFO,0,0.0,Missing timestamps retained for semantic analysis.
+order_approved_at missing after parsing,INFO,160,0.16,Missing timestamps retained for semantic analysis.
+order_delivered_carrier_date missing after parsing,INFO,1783,1.79,Missing timestamps retained for semantic analysis.
+order_delivered_customer_date missing after parsing,INFO,2965,2.98,Missing timestamps retained for semantic analysis.
+order_estimated_delivery_date missing after parsing,INFO,0,0.0,Missing timestamps retained for semantic analysis.
+order_purchase_timestamp parse validity,PASS,0,0.0,Non-null values that failed datetime parsing.
+order_approved_at parse validity,PASS,0,0.0,Non-null values that failed datetime parsing.
+order_delivered_carrier_date parse validity,PASS,0,0.0,Non-null values that failed datetime parsing.
+order_delivered_customer_date parse validity,PASS,0,0.0,Non-null values that failed datetime parsing.
+order_estimated_delivery_date parse validity,PASS,0,0.0,Non-null values that failed datetime parsing.
+approved_before_purchase,PASS,0,0.0,approved_at < purchase_timestamp; comparable rows=99281
+carrier_before_purchase,REVIEW,166,0.17,carrier_date < purchase_timestamp; comparable rows=97658
+carrier_before_approval,REVIEW,1359,1.39,carrier_date < approved_at; comparable rows=97644
+customer_delivery_before_purchase,PASS,0,0.0,customer_delivery < purchase_timestamp; comparable rows=96476
+customer_delivery_before_carrier,REVIEW,23,0.02,customer_delivery < carrier_date; comparable rows=96475
+estimated_delivery_before_purchase,PASS,0,0.0,estimated_delivery < purchase_timestamp; comparable rows=99441
