@@ -1,0 +1,13 @@
+check,status,details
+fact_order_items row count,PASS,"Rows=112,650"
+fact_order_items business key,PASS,order_id + order_item_id remains unique
+agg_order_items unique order_id,PASS,One row per order
+order item count preserved,PASS,"Aggregated items=112,650; detail rows=112,650"
+agg_order_payments unique order_id,PASS,One row per order
+agg_order_reviews unique order_id,PASS,One row per order
+fact_orders row count,PASS,"Rows=99,441"
+fact_orders unique order_id,PASS,One row per order
+dim_customers unique customer_unique_id,PASS,One row per actual customer identity
+product revenue reconciliation,PASS,"Detail=13,591,643.70; Aggregated=13,591,643.70"
+freight reconciliation,PASS,"Detail=2,251,909.54; Aggregated=2,251,909.54"
+orders with items represented,PASS,"Orders with items=98,666; aggregated item orders=98,666"
