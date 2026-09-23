@@ -13,13 +13,48 @@ REPORT_DIR = Path("reports")
 REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
 
+# Expected final analytical tables and their validated row counts
 EXPECTED_TABLES = {
+    # --------------------------------------------------------
+    # Core analytical model
+    # --------------------------------------------------------
     "fact_order_items": 112650,
     "agg_order_items": 98666,
     "agg_order_payments": 99440,
     "agg_order_reviews": 98673,
     "fact_orders": 99441,
     "dim_customers": 96096,
+
+    # --------------------------------------------------------
+    # Customer analytics
+    # --------------------------------------------------------
+    "customer_rfm": 96096,
+
+    # --------------------------------------------------------
+    # Product & seller analytics
+    # --------------------------------------------------------
+    "category_performance": 74,
+    "product_performance": 32951,
+    "seller_performance": 3095,
+    "seller_category_performance": 6616,
+    "seller_state_performance": 23,
+
+    # --------------------------------------------------------
+    # Operations & customer experience analytics
+    # --------------------------------------------------------
+    "operations_summary": 1,
+    "monthly_operations": 25,
+    "customer_state_operations": 27,
+    "delivery_review_performance": 3,
+    "review_score_distribution": 5,
+    "category_operations": 74,
+    "seller_delivery_performance": 3095,
+    "seller_state_operations": 23,
+
+    # --------------------------------------------------------
+    # Power BI
+    # --------------------------------------------------------
+    "dim_date": 774,
 }
 
 
@@ -28,11 +63,13 @@ EXPECTED_TABLES = {
 # ============================================================
 
 def check_result(results, check, passed, details):
-    results.append({
-        "check": check,
-        "status": "PASS" if passed else "FAIL",
-        "details": details
-    })
+    results.append(
+        {
+            "check": check,
+            "status": "PASS" if passed else "FAIL",
+            "details": details,
+        }
+    )
 
 
 # ============================================================
@@ -94,14 +131,14 @@ def validate_database():
             results,
             "Expected tables exist",
             len(missing_tables) == 0,
-            f"Missing tables={sorted(missing_tables)}"
+            f"Missing tables={sorted(missing_tables)}",
         )
 
         check_result(
             results,
             "No unexpected analytical tables",
             len(unexpected_tables) == 0,
-            f"Unexpected tables={sorted(unexpected_tables)}"
+            f"Unexpected tables={sorted(unexpected_tables)}",
         )
 
         # ----------------------------------------------------
@@ -123,7 +160,7 @@ def validate_database():
                 (
                     f"Expected={expected_rows:,}; "
                     f"Actual={actual_rows:,}"
-                )
+                ),
             )
 
         # ----------------------------------------------------
@@ -135,39 +172,47 @@ def validate_database():
         queries = {
             "fact_order_items grain":
                 """
-                SELECT COUNT(*) = COUNT(DISTINCT order_id || '-' || order_item_id)
+                SELECT COUNT(*) =
+                       COUNT(
+                           DISTINCT order_id || '-' || order_item_id
+                       )
                 FROM fact_order_items
                 """,
 
             "fact_orders grain":
                 """
-                SELECT COUNT(*) = COUNT(DISTINCT order_id)
+                SELECT COUNT(*) =
+                       COUNT(DISTINCT order_id)
                 FROM fact_orders
                 """,
 
             "dim_customers grain":
                 """
-                SELECT COUNT(*) = COUNT(DISTINCT customer_unique_id)
+                SELECT COUNT(*) =
+                       COUNT(DISTINCT customer_unique_id)
                 FROM dim_customers
                 """,
 
             "agg_order_items grain":
                 """
-                SELECT COUNT(*) = COUNT(DISTINCT order_id)
+                SELECT COUNT(*) =
+                       COUNT(DISTINCT order_id)
                 FROM agg_order_items
                 """,
 
             "agg_order_payments grain":
                 """
-                SELECT COUNT(*) = COUNT(DISTINCT order_id)
+                SELECT COUNT(*) =
+                       COUNT(DISTINCT order_id)
                 FROM agg_order_payments
                 """,
 
             "agg_order_reviews grain":
                 """
-                SELECT COUNT(*) = COUNT(DISTINCT order_id)
+                SELECT COUNT(*) =
+                       COUNT(DISTINCT order_id)
                 FROM agg_order_reviews
-                """
+                """,
         }
 
         for check_name, query in queries.items():
@@ -180,7 +225,7 @@ def validate_database():
                 results,
                 check_name,
                 passed,
-                "Expected analytical grain preserved"
+                "Expected analytical grain preserved",
             )
 
         # ----------------------------------------------------
@@ -210,7 +255,7 @@ def validate_database():
             (
                 f"Detail={detail_revenue:,.2f}; "
                 f"Aggregated={aggregated_revenue:,.2f}"
-            )
+            ),
         )
 
         # ----------------------------------------------------
@@ -240,7 +285,7 @@ def validate_database():
             (
                 f"Detail={detail_freight:,.2f}; "
                 f"Aggregated={aggregated_freight:,.2f}"
-            )
+            ),
         )
 
         # ----------------------------------------------------
@@ -272,7 +317,7 @@ def validate_database():
                 f"Orders with items={orders_with_items:,}; "
                 f"Aggregated item orders="
                 f"{aggregated_item_orders:,}"
-            )
+            ),
         )
 
         # ----------------------------------------------------
@@ -290,7 +335,7 @@ def validate_database():
 
         report.to_csv(
             report_path,
-            index=False
+            index=False,
         )
 
         print(
@@ -330,6 +375,10 @@ def validate_database():
     finally:
         connection.close()
 
+
+# ============================================================
+# MAIN
+# ============================================================
 
 if __name__ == "__main__":
     validate_database()

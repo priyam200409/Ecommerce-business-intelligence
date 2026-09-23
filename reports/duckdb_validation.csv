@@ -7,6 +7,21 @@ agg_order_payments row count,PASS,"Expected=99,440; Actual=99,440"
 agg_order_reviews row count,PASS,"Expected=98,673; Actual=98,673"
 fact_orders row count,PASS,"Expected=99,441; Actual=99,441"
 dim_customers row count,PASS,"Expected=96,096; Actual=96,096"
+customer_rfm row count,PASS,"Expected=96,096; Actual=96,096"
+category_performance row count,PASS,Expected=74; Actual=74
+product_performance row count,PASS,"Expected=32,951; Actual=32,951"
+seller_performance row count,PASS,"Expected=3,095; Actual=3,095"
+seller_category_performance row count,PASS,"Expected=6,616; Actual=6,616"
+seller_state_performance row count,PASS,Expected=23; Actual=23
+operations_summary row count,PASS,Expected=1; Actual=1
+monthly_operations row count,PASS,Expected=25; Actual=25
+customer_state_operations row count,PASS,Expected=27; Actual=27
+delivery_review_performance row count,PASS,Expected=3; Actual=3
+review_score_distribution row count,PASS,Expected=5; Actual=5
+category_operations row count,PASS,Expected=74; Actual=74
+seller_delivery_performance row count,PASS,"Expected=3,095; Actual=3,095"
+seller_state_operations row count,PASS,Expected=23; Actual=23
+dim_date row count,PASS,Expected=774; Actual=774
 fact_order_items grain,PASS,Expected analytical grain preserved
 fact_orders grain,PASS,Expected analytical grain preserved
 dim_customers grain,PASS,Expected analytical grain preserved
