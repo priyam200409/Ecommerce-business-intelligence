@@ -4,20 +4,17 @@ data/processed/
 # Local analytical database
 data/*.duckdb
 data/*.duckdb.wal
-
 # Python virtual environment
 .venv/
-
 # Python cache
 __pycache__/
 *.py[cod]
-
 # Environment variables
 .env
-
 # Jupyter
 .ipynb_checkpoints/
-
 # Power BI temporary files
 *.tmp
 *.temp
+# Generated Power BI export files
+data/powerbi/
