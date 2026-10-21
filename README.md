@@ -4,7 +4,7 @@
 
 An end-to-end Data Analyst portfolio project built using the Olist Brazilian E-Commerce Public Dataset
 
-The project analyzes e-commerce sales, customer behavior, product performance, seller performance, delivery operations, and customer experience using Python, SQL, DuckDB, and Power BI.
+The project analyzes e-commerce sales, customer behavior, product performance, seller performance, delivery operations, and customer experience using Python, SQL, DuckDB, and Power BI
 
 ---
 
