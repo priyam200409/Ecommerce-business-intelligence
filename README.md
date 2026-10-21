@@ -10,7 +10,7 @@ The project analyzes e-commerce sales, customer behavior, product performance, s
 
 ## Project Objective
 
-The objective of this project is to transform raw e-commerce transaction data into a validated analytical data model and business intelligence solution.
+The objective of this project is to transform raw e-commerce transaction data into a validated analytical data model and business intelligence solution
 
 The project focuses on:
 
