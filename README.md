@@ -1,6 +1,6 @@
 # E-Commerce Business Intelligence
 
-## Sales, Customer, Product & Operations Analytics
+## Sales, Customer, Product & Operations Analytics.
 
 An end-to-end Data Analyst portfolio project built using the Olist Brazilian E-Commerce Public Dataset.
 
