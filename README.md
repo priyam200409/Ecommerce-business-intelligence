@@ -23,7 +23,7 @@ The project focuses on:
 - Geographic performance
 - Business KPI reporting
 
-The project follows a validation-first approach so that analytical results are reconciled against the underlying transactional data.
+The project follows a validation-first approach so that analytical results are reconciled against the underlying transactional data
 
 ---
 
